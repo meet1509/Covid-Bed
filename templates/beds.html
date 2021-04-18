@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+    </head>
+    <body>
+        <section class="header">
+        <nav>
+            <a href="/" class="logo">
+                <p class="boldText"><span id="redColor">Covid</span> Bed</p>
+            </a>
+            <ul>
+                <li><a class="active" href="#">Home</a></li>
+            </ul>
+        </nav>
+        <div class="big">
+            <div class="container">
+            <form method="POST" action="" class="form2">
+            {{form1.as_p}}
+            {% csrf_token %}
+            
+                <div style="color:white;">First Name                
+                <input type="text" id="Name" name="Name" required>
+                </div>
+                <br>
+                <div style="color:white;">Phone
+                <input type="text" id="Phone" name="Phone" required>
+                </div>
+                <br>
+                <div style="color:white;">Email-Id
+                <input type="email" id="Email" name="Email" required>
+                </div>
+                <br>
+                <div style="color:white;">
+                <form>
+                
+                Location
+                <input type="text" id="location" name="location" required>
+                <br>
+                <button name="search">Search</button>
+                </form>
+        
+                {% for i in hospitals %}
+                    <p>{{ i.hname }} {{ i.city }} {{ i.price }} {{ i.vacant_beds }}</p>
+                {% endfor %}
+                </div>
+                {% comment %} </form> {% endcomment %}
+            <form method="POST" action="">
+            {{form2.as_p}}
+            {% csrf_token %}
+                <div>
+                    <select name="dropdown" id="dropdown">
+                        <option diabled="true" selected>--Select an available bed</option>
+                        {% for i in hospitals %}
+                            <option>{{ i.hname }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <button name = "submit" type="submit">Book</button>
+                </form>
+            </div>
+            </div>
+        </section>
+        <script src="" async defer></script>
+        
+    </body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Covid-Bed</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <script src="{% static 'project.js' %}"></script>
+</head>
+<body>
+    <section class="header">
+        <nav>
+            <a href="/" class="logo">
+                <p class="boldText"><span id="redColor">Covid</span> Bed</p>
+            </a>
+            <ul>
+                <li><a class="active" href="#">Home</a></li>
+                <li><a href="#form">Form</a></li>
+                <li><a href="#info">Info</a></li>
+                <li><a href="#aboutlast">About</a></li>
+            </ul>
+        </nav>
+        
+        <div class="header-content">
+            <div class="header-text">
+                <h1>The Smarter way to book your <span id="redColor">Covid19</span> Bed</h1>
+                <p>
+                    The purpose is to make the patient check whether he/she is having Covid-19 positive.
+                </p>
+                <p>
+                    And if so, he/she can efficiently book his/her bed in hospital of his/her choice
+                </p>
+                <a href="./form2.html" class="header-btn">
+                    Get Started
+                </a>
+            </div>
+            <div class="header-image">
+                <img  src="{% static 'frontCovid19.jpg' %}" >
+            </div>
+        </div>
+    </section>
+    <section id="form">
+        <div class="form-heading">
+            <h2>Form</h2>
+        </div>
+        <div class="big">
+            <div class="container">
+                <div class="heading">Form Filling</div>
+                <form action="http://127.0.0.1:8000/beds" onsubmit="return performValidation()">
+                    <div class="user-details">
+                        <div class="input-box">
+                            <span class="details">First Name</span>
+                            <input id="full_name" type="text" placeholder="Enter your name" required>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Phone Number</span>
+                            <input id="phone_number" type="text" placeholder="Enter your phone number" required>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Email</span>
+                            <input id="email_id" type="text" placeholder="Enter your email" required>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Oximeter Reading</span>
+                            <input id="Oximeter" type="text" placeholder="Enter Oximeter Reading (0-100)" required>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Temperature</span>
+                            <input id="Temperature" type="text" placeholder="Enter Temperature in Celcius" required>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Do you have severe fever?</span>
+                            <input id="severe_fev" type="text" placeholder="Yes or No" required>
+                        </div>
+                    </div>
+                    <div class="category-container">
+                        <div class="category-title">Gender</div>
+                        <div class="category">
+                            <input type="radio" class="styling" id="male" name="gender" value="male">
+                            <label for="male">Male</label><br>
+                            <input type="radio" id="female" name="gender" value="female">
+                            <label for="female">Female</label><br>
+                            <input type="radio" id="other" name="gender" value="other">
+                            <label for="other">Other</label>
+                        </div>
+                    </div>
+                    <div class="button">
+                        <input type="submit" value="Check For COVID-19 Positive" onclick="performValidation()">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <section class="subjects" id="info">
+        <div class="subject-heading">
+            <h2><span id="redColor">Covid-19</span> Information</h2>
+        </div>
+        <div class="box-container">
+            <div class="box">
+                <font>Origin</font>
+                <p>
+                    Coronavirus disease 2019 (COVID-19) is a contagious disease caused by the severe acute respiratory 
+                    syndrome coronavirus 2 (SARS-CoV-2) virus. The first known case was identified in Wuhan, China, 
+                    in December 2019. The disease has since spread worldwide, leading to an ongoing pandemic.
+                </p>
+                <a href="https://en.wikipedia.org/wiki/COVID-19">View</a>
+            </div>
+            <div class="box">
+                <font>Treatment</font>
+                <p>
+                    There is no specific, effective treatment or cure for coronavirus disease 2019 (COVID-19) , the 
+                    disease caused by the SARS-CoV-2 virus. Thus, the cornerstone of management of COVID-19 is 
+                    supportive care, which includes treatment to relieve symptoms, fluid therapy, oxygen support and 
+                    prone positioning as needed, and medications or devices to support other affected vital organs
+                </p>
+                <a href="https://en.wikipedia.org/wiki/COVID-19#Treatment">View</a>
+            </div>
+            <div class="box">
+                <font>Symptoms</font>
+                <p>
+                    Symptoms of COVID-19 are variable, ranging from mild symptoms to severe illness. 
+                    Common symptoms include <span id="mildBold">headache, loss of smell and taste, nasal congestion and runny nose, 
+                    cough, muscle pain, sore throat, fever, diarrhea, and breathing difficulties</span> 
+                </p>
+                <a href="https://en.wikipedia.org/wiki/COVID-19#Signs_and_symptoms">View</a>
+            </div>
+            <div class="box">
+                <font>Prevention</font>
+                <p>
+                    Preventive measures to reduce the chances of infection include <span id="mildBold">staying at home, wearing a mask in 
+                    public, avoiding crowded places, keeping distance from others, washing hands with soap and water often and for at least 20 
+                    seconds and avoiding touching the eyes, nose, or mouth with unwashed hands</span>
+                </p>
+                <a href="https://en.wikipedia.org/wiki/COVID-19#Prevention">View</a>
+            </div>
+        </div>
+    </section>
+    <section class="abouts" id="aboutlast">
+        <div class="about-content">
+            <div class="about-text">
+                <h1>
+                    #Stay<span id="redColor">Home</span>
+                </h1>
+                <br>
+                <h1>
+               
+                    #Stay<span id="redColor">Safe</span>
+                 </h1>
+                <br>
+                <p>
+                    Crafted by Gaurang, Meet and Shivam
+                </p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
